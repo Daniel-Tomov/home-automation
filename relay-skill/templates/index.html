@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="HTML,CSS,JavaScript">
+		<meta name="author" content="Daniel Tomov">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<title>Smart Home Automation</title>
+      <script>
+         setTimeout(function(){
+            window.location.href = 'http://192.168.3.142:5555';
+         }, 5000);
+      </script>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id="column_one">
+				<div class="button_div">
+					
+					<form class="button_form" action="#" method="post">		
+						{% if btn1 == True %}
+							<button type=submit class="button" style="background-color: green;" name="button" value="desk_on"><p class="button_image">&#128161;</p><p class="button_name">Desk Light</p></button>
+						{% elif btn1 == False %}
+							<button type=submit class="button" style="background-color: red;" name="button" value="desk_off"><p class="button_image">&#128161;</p><p class="button_name">Desk Light</p></button>
+						{% endif %}
+					</form>
+				
+				</div>
+				<div class="button_div">
+					<form class="button_form" action="#" method="post">
+						<button type=submit class="button" style="background-color: blue" name="button" value="settings"><p class="button_image">&#9881;</p><p class="button_name">Settings</p></button>
+					</form>
+				</div>
+			</div>
+			<div id="column_two">
+				<div class="button_div">
+					<form class="button_form" action="#" method="post">
+						{% if btn2 == True %}
+							<button type=submit class="button" style="background-color: green;" name="button" value="office_on"><p class="button_image">&#128161;</p><p class="button_name">Office Light</p></button>
+						{% elif btn2 == False %}
+							<button type=submit class="button" style="background-color: red;" name="button" value="office_off"><p class="button_image">&#128161;</p><p class="button_name">Office Light</p></button>
+						{% endif %}
+					</form>
+				</div>
+				<div class="button_div">
+					{% if btn3 == 'on' %}
+						<div class="button" style="background-color: green;"><p class="button_image">&#x1f6a8;</p><p class="button_name">Alarm</p></div>
+					{% elif btn3 == 'off' %}
+						<div class="button" style="background-color: red;"><p class="button_image">&#x1f6a8;</p><p class="button_name">Alarm</p></div>
+					{% elif btn3 == 'waitdisarm' %}
+						<div class="button" style="background-color: yellow;"><p class="button_image">&#x1f6a8;</p><p class="button_name">Alarm</p></div>
+					{% elif btn3 == 'alarm' %}
+						<div class="button" style="background-color: orange;"><p class="button_image">&#x1f6a8;</p><p class="button_name">Alarm</p></div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="HTML,CSS,JavaScript">
+		<meta name="author" content="Daniel Tomov">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<title>Smart Home Automation</title>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id="column_one">
+				<div class="button_div">
+					<form class="half_button_form" action="#" method="post">
+						<input class="text_field" name="alarm_code">
+						{% if btn3 == 'on' %}
+							<button type=submit class="half_button" style="background-color: green;" name="button" value="alarm_on"><p class="half_button_image">&#x1f6a8;</p><p class="half_button_name">Alarm</p></button>
+						{% elif btn3 == 'off' %}
+							<button type=submit class="half_button" style="background-color: red;" name="button" value="alarm_off"><p class="half_button_image">&#x1f6a8;</p><p class="half_button_name">Alarm</p></button>
+						{% elif btn3 == 'waitdisarm' %}
+							<button type=submit class="half_button" style="background-color: yellow;" name="button" value="alarm_waitdisarm"><p class="half_button_image">&#x1f6a8;</p><p class="half_button_name">Alarm</p></button>
+						{% elif btn3 == 'alarm' %}
+							<button type=submit class="half_button" style="background-color: orange;" name="button" value="alarm_alarm"><p class="half_button_image">&#x1f6a8;</p><p class="half_button_name">Alarm</p></button>
+						{% endif %}
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
